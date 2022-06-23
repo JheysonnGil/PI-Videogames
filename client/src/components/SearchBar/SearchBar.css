@@ -1,0 +1,10 @@
+.search {
+  color: aliceblue;
+  text-align: center;
+}
+
+.search label {
+  font-size: 17px;
+  transform: translateY(70%);
+  transition: 0.3s;
+}
