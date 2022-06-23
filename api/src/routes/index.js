@@ -17,17 +17,32 @@ const DB = async () => {
       rating: e.rating,
       platforms: e.platforms,
       genres: e.genres.map((e) => e.name),
-      bgd_img: e.background_image,
+      background_image: e.background_image,
+      createdInDb: e.createdInDb,
+      description: e.description,
     };
   });
   return mapDb;
 };
 
 const API = async () => {
-  const apiUrl = await axios.get(
-    `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page_size=40`
+  let apiUrlArr = [];
+
+  const apiUrl1 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}`;
+  const apiUrl2 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=2`;
+  const apiUrl3 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=3`;
+  const apiUrl4 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=4`;
+  const apiUrl5 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=5`;
+
+  apiUrlArr.push(apiUrl1, apiUrl2, apiUrl3, apiUrl4, apiUrl5);
+
+  const allVgAPI = await Promise.all(
+    apiUrlArr.map((v) => axios(v).then((r) => r.data.results))
   );
-  const apiInfo = await apiUrl.data.results.map((e) => {
+
+  const apiUrl = allVgAPI.flat();
+
+  const apiInfo = await apiUrl.map((e) => {
     return {
       id: e.id,
       name: e.name,
@@ -35,7 +50,9 @@ const API = async () => {
       rating: e.rating,
       platforms: e.platforms.map((e) => e.platform.name),
       genres: e.genres.map((e) => e.name),
-      bgd_img: e.background_image,
+      background_image: e.background_image,
+      createdInDb: false,
+      description: "",
     };
   });
   return apiInfo;
