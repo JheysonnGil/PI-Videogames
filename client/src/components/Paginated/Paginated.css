@@ -2,14 +2,8 @@
   font-size: 10pt;
   line-height: 1;
   font-weight: 400;
-  font-family: "Open Sans", "Source Sans Pro", Roboto, "HelveticaNeue-Light",
-    "Helvetica Neue Light", "Helvetica Neue", "Myriad Pro", "Segoe UI", Myriad,
-    Helvetica, "Lucida Grande", "DejaVu Sans Condensed", "Liberation Sans",
-    "Nimbus Sans L", Tahoma, Geneva, Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
-  margin: 15px auto;
+  margin-top: 10px;
   text-align: center;
-  transition: font-size 0.2s ease-in-out;
 }
 
 .paginated ul {
@@ -26,5 +20,30 @@
 }
 
 .paginated button {
-  margin: 2px;
+  font-size: 1.5rem;
+  position: relative;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  display: flex;
+  padding: 5px 30px;
+  color: #fff;
+  text-shadow: #03e9f4;
+  shape-outside: margin-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+  border-radius: 5px;
+  border-width: 2px;
+  border-color: #fff;
+  background-color: rgb(5, 150, 180);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.paginated button:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
 }

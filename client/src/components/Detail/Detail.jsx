@@ -13,26 +13,20 @@ export default function Detail() {
     dispatch(detailPerVg(vgId.id));
   }, [dispatch, vgId.id]);
 
-  const videoGame = useSelector((state) => state.detail);
+  let videoGame = useSelector((state) => state.detail);
   function matchReg(r) {
     let reg = /<\/?.+?\/?>/g;
     return r.replace(reg, "");
   }
 
-  // function goBack(e) {
-  //   e.preventDefault();
-  //   console.log("laskdjflkajsdklfj");
-  //   videoGame = [];
-  // }
-
   return (
-    <div className="nav">
-      <div>
+    <div className="totaldetail">
+      <div className="nav">
         {videoGame.length > 0 ? (
-          <div>
-            <h1>{videoGame[0].name}</h1>
+          <div className="detailtittle">
+            <h1 className="detailh1">{videoGame[0].name}</h1>
             <div className="containerDetail">
-              <ul className="tmnimg">
+              <ul>
                 <img
                   className="imgDetail"
                   src={videoGame[0].background_image}
@@ -76,7 +70,9 @@ export default function Detail() {
                 <br></br>
                 <br></br>
                 {videoGame[0].genres.map((g, index) => (
-                  <ul key={index}>{g}</ul>
+                  <ul key={index}>
+                    <p>{g}</p>
+                  </ul>
                 ))}
                 <br></br>
                 <br></br>
@@ -85,25 +81,28 @@ export default function Detail() {
                 <br></br>
                 <br></br>
                 {videoGame[0].platforms.map((p, index) => (
-                  <ul key={index}>{p}</ul>
+                  <ul key={index}>
+                    <p>{p}</p>
+                  </ul>
                 ))}
               </ul>
             </div>
             <br></br>
             <div className="btn_goback">
-              <Link
-                to="/home"
-                // onClick={(e) => {
-                //   goBack(e);
-                // }}
-              >
-                <button>Go back</button>
+              <Link className="backlink" to="/home">
+                Go back
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
               </Link>
             </div>
           </div>
         ) : (
-          <div className="ldng">
-            <h3>Loading...</h3>
+          <div className="loaddetail">
+            <div>
+              <h3 className="loadingdetail">Loading...</h3>
+            </div>
           </div>
         )}
       </div>

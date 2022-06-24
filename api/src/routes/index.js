@@ -2,6 +2,7 @@ const { Router } = require("express");
 const axios = require("axios");
 const { Videogame, Genre } = require("../db.js");
 const { RAWG_API_KEY } = process.env;
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -19,7 +20,7 @@ const DB = async () => {
       genres: e.genres.map((e) => e.name),
       background_image: e.background_image,
       createdInDb: e.createdInDb,
-      description: e.description,
+      description: "",
     };
   });
   return mapDb;
@@ -28,13 +29,10 @@ const DB = async () => {
 const API = async () => {
   let apiUrlArr = [];
 
-  const apiUrl1 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}`;
-  const apiUrl2 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=2`;
-  const apiUrl3 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=3`;
-  const apiUrl4 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=4`;
-  const apiUrl5 = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=5`;
-
-  apiUrlArr.push(apiUrl1, apiUrl2, apiUrl3, apiUrl4, apiUrl5);
+  for (let i = 1; i < 6; i++) {
+    let vgPerPg = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&page=${i}`;
+    apiUrlArr.push(vgPerPg);
+  }
 
   const allVgAPI = await Promise.all(
     apiUrlArr.map((v) => axios(v).then((r) => r.data.results))
@@ -42,19 +40,21 @@ const API = async () => {
 
   const apiUrl = allVgAPI.flat();
 
-  const apiInfo = await apiUrl.map((e) => {
-    return {
-      id: e.id,
-      name: e.name,
-      released: e.released,
-      rating: e.rating,
-      platforms: e.platforms.map((e) => e.platform.name),
-      genres: e.genres.map((e) => e.name),
-      background_image: e.background_image,
-      createdInDb: false,
-      description: "",
-    };
-  });
+  const apiInfo = await Promise.all(
+    apiUrl.map((e) => {
+      return {
+        id: e.id,
+        name: e.name,
+        released: e.released,
+        rating: e.rating,
+        platforms: e.platforms.map((e) => e.platform.name),
+        genres: e.genres.map((e) => e.name),
+        background_image: e.background_image,
+        createdInDb: false,
+        description: "",
+      };
+    })
+  );
   return apiInfo;
 };
 
@@ -92,7 +92,7 @@ router.get("/videogames", async (req, res) => {
   }
 });
 
-router.get("/videogames/:idVideogame", async (req, res) => {
+router.get("/videogame/:idVideogame", async (req, res) => {
   const id = req.params.idVideogame;
   const results = await allVideogames();
   try {
@@ -159,16 +159,5 @@ router.post("/videogame", async (req, res) => {
     res.status(404).send(e);
   }
 });
-
-// router.delete("/delete", async (req, res) => {
-//   const { id } = req.body;
-
-//   try {
-//     await Videogame.destroy({ Where: { id: id } });
-//     res.status(200).send("Videogame deleted");
-//   } catch (e) {
-//     res.status(404).send(e);
-//   }
-// });
 
 module.exports = router;

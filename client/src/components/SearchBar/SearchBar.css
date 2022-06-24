@@ -1,10 +1,124 @@
-.search {
+.formSearch {
+  display: flex;
   color: aliceblue;
   text-align: center;
 }
 
-.search label {
-  font-size: 17px;
-  transform: translateY(70%);
-  transition: 0.3s;
+.inputSearch {
+  border-radius: 5px;
+  border-width: 0px;
+  background-color: #ffffffcb;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+.searchButton {
+  font-size: 12px;
+  position: relative;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  display: flex;
+  padding: 5px 10px;
+  color: #ffffff;
+  text-shadow: #03e9f4;
+  shape-outside: margin-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+  border-color: rgba(0, 0, 0, 0);
+  border-width: 0px;
+  border-radius: 5px;
+  background-color: rgba(255, 68, 0, 0.494);
+}
+
+.searchButton:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+}
+
+.searchButton span {
+  position: absolute;
+  display: block;
+}
+
+.searchButton span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(0, 225, 255));
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.searchButton span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(0, 225, 255));
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.searchButton span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, rgb(0, 225, 255));
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.searchButton span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, rgb(0, 225, 255));
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }

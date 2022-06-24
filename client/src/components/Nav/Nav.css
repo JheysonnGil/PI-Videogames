@@ -1,17 +1,58 @@
-.bg {
-  height: 600px;
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0px 0px 15px rgb(0, 225, 255);
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: rgba(50, 0, 70, 0.85);
+  height: 150px;
+  width: 100%;
+}
+
+.bgtitle {
+  margin-left: 40px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
-.title {
-  width: 1250px;
-  display: block;
+.htitle {
+  width: 500px;
+  text-align: center;
+  color: aliceblue;
 }
 
-.linkpos {
-  margin-top: 70px;
+.searchNav {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.find {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800px;
+  font-style: italic;
+  color: #fff;
+  padding: 1rem 0rem 1rem;
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  animation: flicker 0.5s infinite alternate;
+  margin-bottom: -30px;
+}
+
+.link_add {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,9 +60,9 @@
 
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
 
-.landingh1 {
+.homeh1 {
   position: center;
-  font-size: 8rem;
+  font-size: 4rem;
   font-weight: 800;
   font-style: italic;
   color: #fff;
@@ -32,17 +73,17 @@
   animation: flicker 1.5s infinite alternate;
 }
 
-.landingh1::-moz-selection {
+.homeh1::-moz-selection {
   background-color: #08f;
   color: #f40;
 }
 
-.landingh1::selection {
+.homeh1::selection {
   background-color: #08f;
   color: #f40;
 }
 
-.landingh1:focus {
+.homeh1:focus {
   outline: none;
 }
 
@@ -73,38 +114,38 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
-.landinglink {
+.addlink {
   font-size: 2rem;
   position: relative;
   align-items: center;
   width: fit-content;
   justify-content: center;
   display: flex;
-  padding: 15px 25px;
+  padding: 30px 30px;
   color: #ffffff;
   text-shadow: #03e9f4;
   shape-outside: margin-box;
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
-  letter-spacing: 5px;
   overflow: hidden;
   border-radius: 5px;
-  background-color: rgba(50, 0, 70, 0.85);
+  background-color: rgba(255, 68, 0, 0.494);
+  margin-right: -120px;
 }
 
-.landinglink:hover {
+.addlink:hover {
   background: #ffffff;
   color: #000000;
   box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
 }
 
-.landinglink span {
+.addlink span {
   position: absolute;
   display: block;
 }
 
-.landinglink span:nth-child(1) {
+.addlink span:nth-child(1) {
   top: 0;
   left: 0;
   width: 100%;
@@ -123,7 +164,7 @@
   }
 }
 
-.landinglink span:nth-child(2) {
+.addlink span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -143,7 +184,7 @@
   }
 }
 
-.landinglink span:nth-child(3) {
+.addlink span:nth-child(3) {
   bottom: 0;
   right: 0;
   width: 100%;
@@ -163,7 +204,7 @@
   }
 }
 
-.landinglink span:nth-child(4) {
+.addlink span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -181,4 +222,8 @@
   100% {
     bottom: 100%;
   }
+}
+
+.sublink {
+  text-decoration: none;
 }

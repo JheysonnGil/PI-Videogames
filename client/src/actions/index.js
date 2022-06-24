@@ -48,7 +48,7 @@ export function detailPerVg(id) {
   return async (dispatch) => {
     try {
       const detailCard = await axios.get(
-        `http://localhost:3001/videogames/${id}`
+        `http://localhost:3001/videogame/${id}`
       );
       return dispatch({
         type: DETAIL_VIDEOGAME,

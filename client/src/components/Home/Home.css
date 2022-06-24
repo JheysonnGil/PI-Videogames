@@ -1,3 +1,12 @@
+:root {
+  /* Base font size */
+  font-size: 10px;
+
+  /* Set neon color */
+  --neon-text-color: #f40;
+  --neon-border-color: #08f;
+}
+
 body {
   display: center;
   justify-content: center;
@@ -11,68 +20,85 @@ body {
   font-weight: bold;
 }
 
-.bgtitle {
+.space {
+  display: block;
+  width: 100%;
+  height: 150px;
+  background-color: #000;
+}
+
+.resetspace {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.filters {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.opc {
+  font-size: 1.2rem;
+  position: relative;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  display: flex;
+  padding: 5px 10px;
+  color: #ffffff;
+  text-shadow: #03e9f4;
+  shape-outside: margin-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: rgb(255, 68, 0);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.opc:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+}
+
+.Cards {
+  margin-top: 30px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+
+.cardsunit {
+  height: fit-content;
+  color: aliceblue;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(174, 0, 255, 0.388);
+  border-radius: 2rem;
+  align-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.htitle {
-  width: 800px;
-  text-align: center;
-  color: aliceblue;
-}
-
-.wrap {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-items: center;
-}
-
-.Cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  -moz-box-flexgroup: #f40;
-  justify-items: center;
-}
-
-.cardsunit {
-  color: aliceblue;
-  margin-bottom: 70px;
-}
-
 .cardsunit:hover {
-  color: #000;
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
 }
 
-.btn_reset {
-  text-align: center;
-  margin-top: 5px;
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-.opc {
-  width: auto;
-  text-align: center;
-  align-content: center;
-  margin: 5px;
-}
-
-.link_add {
+.addbutton {
   float: right;
-  text-align: center;
-  justify-content: center;
-}
-
-.nav {
-  margin-top: 1px;
-  text-align: center;
-}
-
-.paggin {
-  text-align: center;
-  margin-top: -7px;
 }
 
 .link {
@@ -80,42 +106,50 @@ body {
   height: 95%;
   color: aliceblue;
   text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .add {
   color: aliceblue;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+.loadhome {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.homeh1 {
+.loadinghome {
   position: center;
-  font-size: 8rem;
+  font-size: 12rem;
   font-weight: 800;
   font-style: italic;
   color: #fff;
-  padding: 2rem 2rem 2rem;
-  border: 0.4rem solid #fff;
+  padding: 1rem 25rem 1rem;
+  border: 0.5rem solid #fff;
   border-radius: 3rem;
   text-transform: uppercase;
   animation: flicker 1.5s infinite alternate;
 }
 
-.homeh1::-moz-selection {
+.loadinghome::-moz-selection {
   background-color: #08f;
   color: #f40;
 }
 
-.homeh1::selection {
+.loadinghome::selection {
   background-color: #08f;
   color: #f40;
 }
 
-.homeh1:focus {
+.loadinghome:focus {
   outline: none;
 }
 
-/* Animate neon flicker */
 @keyframes flicker {
   0%,
   19%,
@@ -125,10 +159,10 @@ body {
   54%,
   56%,
   100% {
-    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #fff,
+    text-shadow: -0.2rem -0.2rem 1rem #fff, 0.2rem 0.2rem 1rem #f40,
       0 0 2rem #f40, 0 0 4rem #f40, 0 0 6rem #f40, 0 0 8rem #f40, 0 0 10rem #f40;
 
-    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff, 0 0 2rem #08f,
+    box-shadow: 0 0 0.5rem #f40, inset 0 0 0.5rem #fff, 0 0 2rem #08f,
       inset 0 0 2rem #08f, 0 0 4rem #08f, inset 0 0 4rem #08f;
   }
 
@@ -140,114 +174,26 @@ body {
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
-
-.addlink {
+.btn_reset {
   font-size: 2rem;
   position: relative;
   align-items: center;
   width: fit-content;
   justify-content: center;
   display: flex;
-  padding: 25px 30px;
+  padding: 5px 10px;
   color: #ffffff;
   text-shadow: #03e9f4;
   shape-outside: margin-box;
-  text-decoration: none;
-  text-transform: uppercase;
   transition: 0.5s;
-  letter-spacing: 5px;
   overflow: hidden;
+  border-width: 0px;
   border-radius: 5px;
-  background-color: #03e8f454;
+  background-color: rgb(103, 11, 184);
 }
 
-.addlink:hover {
+.btn_reset:hover {
   background: #ffffff;
   color: #000000;
   box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
-}
-
-.addlink span {
-  position: absolute;
-  display: block;
-}
-
-.addlink span:nth-child(1) {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #f40);
-  animation: animate1 1s linear infinite;
-}
-
-@keyframes animate1 {
-  0% {
-    left: -100%;
-  }
-  50%,
-  100% {
-    left: 100%;
-  }
-}
-
-.addlink span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #f40);
-  animation: animate2 1s linear infinite;
-  animation-delay: 0.25s;
-}
-
-@keyframes animate2 {
-  0% {
-    top: -100%;
-  }
-  50%,
-  100% {
-    top: 100%;
-  }
-}
-
-.addlink span:nth-child(3) {
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #f40);
-  animation: animate3 1s linear infinite;
-  animation-delay: 0.5s;
-}
-
-@keyframes animate3 {
-  0% {
-    right: -100%;
-  }
-  50%,
-  100% {
-    right: 100%;
-  }
-}
-
-.addlink span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #f40);
-  animation: animate4 1s linear infinite;
-  animation-delay: 0.75s;
-}
-
-@keyframes animate4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,
-  100% {
-    bottom: 100%;
-  }
 }

@@ -126,7 +126,21 @@ export default function VideogameCreate() {
 
   function handleSubmit(e) {
     e.preventDefault(e);
-    console.log(input);
+    if (input.name === "") {
+      return alert("Required Name");
+    } else if (input.description === "") {
+      return alert("Required Description");
+    } else if (input.released === "") {
+      return alert("Required Date Released");
+    } else if (input.rating < 1 || input.rating > 5) {
+      return alert("Required Rating Betwen 1 - 5");
+    } else if (input.genres.length === 0) {
+      return alert("Required Som Genre");
+    } else if (input.platforms.length === 0) {
+      return alert("Required Some Platform");
+    } else if (input.background_image === "") {
+      return alert("Required Url");
+    }
     dispatch(postGame(input));
     alert("Videogame Created!");
     setInput({
@@ -146,29 +160,26 @@ export default function VideogameCreate() {
   }, [dispatch]);
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <button>Back</button>
-      </Link>
-      <h1 className="title">Add Game!</h1>
+    <div className="createcontain">
+      <h1 className="createh1">Add Game!</h1>
       <form>
-        <div>
-          <label>Name: </label>
+        <div className="spaceinput">
+          <label className="lbls">Name: </label>
           <input
+            className="npts"
             placeholder="Name......"
             type="text"
             value={input.name}
             name="name"
             onChange={handleChange}
-            required
           />
           <ul>{input.alreadyname}</ul>
         </div>
         <p></p>
-        <div>
-          <label>Description: </label>
+        <div className="spaceinput">
+          <label className="lbls">Description: </label>
           <input
-            className="description"
+            className="npts"
             placeholder="Description......"
             type="textarea"
             rows="4"
@@ -176,25 +187,25 @@ export default function VideogameCreate() {
             value={input.description}
             name="description"
             onChange={handleChange}
-            required
           />
         </div>
         <p></p>
-        <div>
-          <label>Released: </label>
+        <div className="spaceinput">
+          <label className="lbls">Released: </label>
           <input
+            className="npts"
             placeholder="Released......"
             type="date"
             value={input.released}
             name="released"
             onChange={handleChange}
-            required
           />
         </div>
         <p></p>
-        <div>
-          <label>Rating: </label>
+        <div className="spaceinput">
+          <label className="lbls">Rating: </label>
           <input
+            className="npts"
             type="number"
             min="1"
             max="5"
@@ -202,13 +213,16 @@ export default function VideogameCreate() {
             value={input.rating}
             name="rating"
             onChange={handleChange}
-            required
           />
         </div>
         <p></p>
-        <div>
-          <label>Genres: </label>
-          <select onChange={handleSelectGenres} defaultValue="Genres...">
+        <div className="spaceinput">
+          <label className="lbls">Genres: </label>
+          <select
+            className="npts"
+            onChange={handleSelectGenres}
+            defaultValue="Genres..."
+          >
             <option value="strGenres" hidden>
               Genres......
             </option>
@@ -218,12 +232,16 @@ export default function VideogameCreate() {
               </option>
             ))}
           </select>
-          <ul>{input.genres.map((e) => `${e}, `)}</ul>
+          <ul className="orderli">
+            {input.genres.map((e) => (
+              <li className="instock">{e}</li>
+            ))}
+          </ul>
         </div>
         <p></p>
-        <div>
-          <label>Platforms: </label>
-          <select onChange={handleSelectPlatforms}>
+        <div className="spaceinput">
+          <label className="lbls">Platforms: </label>
+          <select className="npts" onChange={handleSelectPlatforms}>
             <option value="strPlatforms" hidden>
               Platforms......
             </option>
@@ -233,12 +251,13 @@ export default function VideogameCreate() {
               </option>
             ))}
           </select>
-          <ul>{input.platforms.map((e) => `${e}, `)}</ul>
+          <ul className="orderli">{input.platforms.map((e) => <li className="instock">{e}</li>)}</ul>
         </div>
         <p></p>
-        <div>
-          <label>Image URL:</label>
+        <div className="spaceinput">
+          <label className="lbls">Image URL:</label>
           <input
+            className="npts"
             placeholder="Image URL......"
             type="text"
             value={input.background_image}
@@ -248,10 +267,17 @@ export default function VideogameCreate() {
           />
         </div>
         <p></p>
-        <button type="submit" onClick={handleSubmit}>
+        <button className="backlink" type="submit" onClick={handleSubmit}>
           Create Videogame
         </button>
       </form>
+      <Link className="backlink" to="/home">
+        Go Back
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </Link>
     </div>
   );
 }

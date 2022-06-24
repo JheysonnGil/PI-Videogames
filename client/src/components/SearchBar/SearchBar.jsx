@@ -14,6 +14,8 @@ function SearchBar({ setPage }) {
 
   function handleSubmit(e) {
     e.preventDefault(e);
+    document.getElementById("putSearch").value = "";
+    handleInputChange(e);
     if (name.length !== 0) {
       dispatch(getNameVideogames(name));
     }
@@ -21,25 +23,27 @@ function SearchBar({ setPage }) {
   }
 
   return (
-    <div className="search">
-      <form className="formSearch">
-        <input
-          id="putSearch"
-          value={name}
-          type="text"
-          placeholder="Search videogame..."
-          onChange={(e) => handleInputChange(e)}
-        />
-        <button
-          className="searchButton"
-          type="submit"
-          onClick={(e) => handleSubmit(e)}
-        >
-          {" "}
-          Search{" "}
-        </button>
-      </form>
-    </div>
+    <form className="formSearch">
+      <input
+        id="putSearch"
+        className="inputSearch"
+        value={name}
+        type="text"
+        placeholder="Search videogame..."
+        onChange={(e) => handleInputChange(e)}
+      />
+      <button
+        className="searchButton"
+        type="submit"
+        onClick={(e) => handleSubmit(e)}
+      >
+        {" "}
+        Search <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </form>
   );
 }
 
