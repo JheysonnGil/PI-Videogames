@@ -34,11 +34,8 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getVideogames());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getGenres());
-  }, [dispatch]);
+  }, []);
 
   function handleClick(e) {
     e.preventDefault();

@@ -9,6 +9,7 @@ export const NAME_BY_QUERY = "NAME_BY_QUERY";
 export const DETAIL_VIDEOGAME = "DETAIL_VIDEOGAME";
 export const GET_GENRES = "GET_GENRES";
 export const POST_GAME = "POST_GAME";
+export const CLEAR_DETAIL = "CLEAR_DETAIL";
 
 export function getVideogames() {
   return async function (dispatch) {
@@ -93,5 +94,11 @@ export function postGame(payload) {
   return async function (dispatch) {
     const create = await axios.post(`http://localhost:3001/videogame`, payload);
     return create;
+  };
+}
+
+export function clearDetail() {
+  return {
+    type: CLEAR_DETAIL,
   };
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { detailPerVg } from "../../actions";
+import { detailPerVg, clearDetail } from "../../actions";
 import "./Detail.css";
 
 export default function Detail() {
@@ -11,6 +11,7 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(detailPerVg(vgId.id));
+    return dispatch(clearDetail());
   }, [dispatch, vgId.id]);
 
   let videoGame = useSelector((state) => state.detail);

@@ -8,6 +8,7 @@ import {
   DETAIL_VIDEOGAME,
   POST_GAME,
   GET_GENRES,
+  CLEAR_DETAIL,
 } from "../actions/index";
 
 const initialState = {
@@ -125,6 +126,12 @@ const rootReducer = (state = initialState, action) => {
     case POST_GAME:
       return {
         ...state,
+      };
+
+    case CLEAR_DETAIL:
+      return {
+        ...state,
+        detail: [],
       };
 
     default:

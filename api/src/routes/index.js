@@ -20,7 +20,7 @@ const DB = async () => {
       genres: e.genres.map((e) => e.name),
       background_image: e.background_image,
       createdInDb: e.createdInDb,
-      description: "",
+      description: e.description,
     };
   });
   return mapDb;
@@ -40,22 +40,50 @@ const API = async () => {
 
   const apiUrl = allVgAPI.flat();
 
-  const apiInfo = await Promise.all(
-    apiUrl.map((e) => {
-      return {
-        id: e.id,
-        name: e.name,
-        released: e.released,
-        rating: e.rating,
-        platforms: e.platforms.map((e) => e.platform.name),
-        genres: e.genres.map((e) => e.name),
-        background_image: e.background_image,
-        createdInDb: false,
-        description: "",
-      };
-    })
-  );
+  const apiInfo = apiUrl.map((e) => {
+    return {
+      id: e.id,
+      name: e.name,
+      released: e.released,
+      rating: e.rating,
+      platforms: e.platforms.map((e) => e.platform.name),
+      genres: e.genres.map((e) => e.name),
+      background_image: e.background_image,
+      createdInDb: false,
+    };
+  });
   return apiInfo;
+};
+
+const gamesIdApi = async (idApi) => {
+  const vgId = await axios(
+    `https://api.rawg.io/api/games/${idApi}?key=${RAWG_API_KEY}`
+  );
+  if (vgId === undefined) {
+    throw new Error("Game not found");
+  }
+  const {
+    id,
+    name,
+    background_image,
+    description,
+    released,
+    rating,
+    platforms,
+    genres,
+  } = vgId.data;
+  const resultVideoGame = [];
+  resultVideoGame.push({
+    id,
+    name,
+    background_image,
+    description,
+    released,
+    rating,
+    platforms: platforms.map((p) => ` ${p.platform.name} `),
+    genres: genres.map((g) => g.name),
+  });
+  return resultVideoGame;
 };
 
 const allVideogames = async () => {
@@ -94,13 +122,18 @@ router.get("/videogames", async (req, res) => {
 
 router.get("/videogame/:idVideogame", async (req, res) => {
   const id = req.params.idVideogame;
-  const results = await allVideogames();
   try {
-    if (id) {
+    if (id.length > 15) {
+      const results = await DB();
+
       let idVg = await results.filter((e) => e.id == id);
       idVg.length
         ? res.status(200).json(idVg)
         : res.status(404).send("ID Not Found");
+    } else {
+      const fromApi = await gamesIdApi(id);
+
+      res.status(200).json(fromApi);
     }
   } catch (e) {
     res.status(404).send(e);
