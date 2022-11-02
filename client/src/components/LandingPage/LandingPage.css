@@ -92,7 +92,7 @@
   letter-spacing: 5px;
   overflow: hidden;
   border-radius: 5px;
-  background-color: rgba(50, 0, 70, 0.85);
+  background-color: rgb(97, 0, 136);
 }
 
 .landinglink:hover {

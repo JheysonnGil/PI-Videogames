@@ -31,7 +31,7 @@ function SearchBar({ setPage }) {
         className="inputSearch"
         value={name}
         type="text"
-        placeholder="Search videogame..."
+        placeholder=" Search videogame..."
         onChange={(e) => handleInputChange(e)}
       />
       <button

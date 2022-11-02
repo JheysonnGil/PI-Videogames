@@ -1,7 +1,16 @@
 .createcontain {
-  display: grid;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.createtitle {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
 }
 
 .spaceinput {
@@ -60,10 +69,10 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
 
 .createh1 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  text-align: center;
-  font-size: 4rem;
+  margin-top: 25px;
+  width: fit-content;
+  position: center;
+  font-size: 5rem;
   font-weight: 800;
   font-style: italic;
   color: #fff;
@@ -136,4 +145,142 @@
   background: #ffffff;
   color: #000000;
   box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+}
+
+.npts2 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  width: 300px;
+  height: 400px;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-shadow: #03e9f4;
+  shape-outside: margin-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: rgb(255, 129, 83);
+  margin-left: 10px;
+}
+
+.npts2:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+.createlink {
+  border-width: 0px;
+  border-color: #00000000;
+  font-size: 2rem;
+  position: relative;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  display: flex;
+  padding: 15px 30px;
+  color: #ffffff;
+  text-shadow: #03e9f4;
+  shape-outside: margin-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: rgb(255, 68, 0);
+  margin-bottom: 50px;
+}
+
+.createlink:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+}
+
+.createlink span {
+  position: absolute;
+  display: block;
+}
+
+.createlink span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(0, 225, 255));
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.createlink span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(0, 225, 255));
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.createlink span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, rgb(0, 225, 255));
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.createlink span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, rgb(0, 225, 255));
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }

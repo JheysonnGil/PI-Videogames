@@ -35,7 +35,7 @@ export default function Home() {
   useEffect(() => {
     dispatch(getVideogames());
     dispatch(getGenres());
-  }, []);
+  }, [dispatch]);
 
   function handleClick(e) {
     e.preventDefault();
@@ -98,7 +98,10 @@ export default function Home() {
             handleClick(e);
           }}
         >
-          Reset Filters
+          Reset Filters<span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
       <div>

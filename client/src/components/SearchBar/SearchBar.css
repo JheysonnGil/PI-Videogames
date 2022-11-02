@@ -7,7 +7,7 @@
 .inputSearch {
   border-radius: 5px;
   border-width: 0px;
-  background-color: #ffffffcb;
+  background-color: #ffffff;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
@@ -30,7 +30,7 @@
   border-color: rgba(0, 0, 0, 0);
   border-width: 0px;
   border-radius: 5px;
-  background-color: rgba(255, 68, 0, 0.494);
+  background-color: rgb(255, 68, 0);
 }
 
 .searchButton:hover {

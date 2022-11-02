@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.detailtittle {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+}
+
 .nav {
   text-align: center;
   color: aliceblue;
@@ -23,21 +29,64 @@
 }
 
 .containerDetail {
+  border-radius: 20px;
   margin: 20px;
-  padding: 1.5%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
 }
 
-.containerDetail ul {
-  margin-bottom: 20px;
+.desc {
+  margin: 30px;
+}
+
+.descrip {
+  text-align: justify;
+  margin-top: 30px;
+  width: 100%;
 }
 
 .imgDetail {
-  border-radius: 50px;
+  margin: 20px;
+  border-radius: 20px;
+  width: 700px;
+  height: 400px;
+  box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px rgb(0, 255, 255),
+    0 0 10px rgb(0, 255, 255);
+}
+
+.features {
+  display: flex;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+}
+
+.points {
   margin-top: 10px;
-  margin-bottom: 25px;
-  width: 40%;
-  height: 100%;
+  width: 200px;
+}
+
+.points p {
+  margin: 30px;
+}
+
+.genr {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.genr p {
+  margin: 15px;
+}
+
+.plat {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.plat p {
+  margin: 10px;
 }
 
 .strtitle {
@@ -77,8 +126,10 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
 
 .detailh1 {
+  margin-top: 25px;
+  width: fit-content;
   position: center;
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 800;
   font-style: italic;
   color: #fff;
@@ -190,6 +241,7 @@
 }
 
 .loadingdetail {
+  margin-top: 100px;
   position: center;
   font-size: 12rem;
   font-weight: 800;
@@ -264,7 +316,7 @@
   transition: 0.5s;
   overflow: hidden;
   border-radius: 5px;
-  background-color: rgba(255, 68, 0, 0.494);
+  background-color: rgb(255, 68, 0);
   margin-bottom: 50px;
 }
 

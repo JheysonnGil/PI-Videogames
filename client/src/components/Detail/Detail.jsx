@@ -24,71 +24,55 @@ export default function Detail() {
     <div className="totaldetail">
       <div className="nav">
         {videoGame.length > 0 ? (
-          <div className="detailtittle">
-            <h1 className="detailh1">{videoGame[0].name}</h1>
+          <div>
+            <div className="detailtittle">
+              <h1 className="detailh1">{videoGame[0].name}</h1>
+            </div>
             <div className="containerDetail">
-              <ul>
+              <ul className="desc">
+                <span>
+                  <strong className="strtitle">Description:</strong>{" "}
+                </span>
+                <p className="descrip"> {matchReg(videoGame[0].description)}</p>
+              </ul>
+              <div>
                 <img
                   className="imgDetail"
                   src={videoGame[0].background_image}
                   alt="Videogame"
                 />
-              </ul>
-              <ul>
-                <span>
-                  <strong className="strtitle">Description:</strong>{" "}
-                </span>
-                <br></br>
-                <br></br>
-                <p> {matchReg(videoGame[0].description)}</p>
-                <br></br>
-              </ul>
-              <ul>
-                <span>
-                  {" "}
-                  <strong className="strtitle">Released: </strong>{" "}
-                </span>
-                <br></br>
-                <br></br>
-                <p> {videoGame[0].released}</p>
-                <br></br>
-              </ul>
-              <ul>
-                <span>
-                  {" "}
-                  <strong className="strtitle">Rating:</strong>{" "}
-                </span>
-                <br></br>
-                <br></br>
-                <p> {videoGame[0].rating}</p>
-                <br></br>
-              </ul>
-              <br />
-              <ul>
-                {" "}
-                <strong className="strtitle">Genres:</strong>
-                <br></br>
-                <br></br>
-                <br></br>
-                {videoGame[0].genres.map((g, index) => (
-                  <ul key={index}>
-                    <p>{g}</p>
+                <div className="features">
+                  <ul className="points">
+                    <span>
+                      {" "}
+                      <strong className="strtitle">Released: </strong>
+                    </span>
+                    <p> {videoGame[0].released}</p>
+                    <span>
+                      {" "}
+                      <strong className="strtitle">Rating:</strong>{" "}
+                    </span>
+                    <p> {videoGame[0].rating}</p>
                   </ul>
-                ))}
-                <br></br>
-                <br></br>
-                <br></br> <strong className="strtitle">Platforms:</strong>
-                <br></br>
-                <br></br>
-                <br></br>
-                {videoGame[0].platforms.map((p, index) => (
-                  <ul key={index}>
-                    <p>{p}</p>
+                  <ul className="genr">
+                    <strong className="strtitle">Genres:</strong>
+                    {videoGame[0].genres.map((g, index) => (
+                      <ul key={index}>
+                        <p>{g}</p>
+                      </ul>
+                    ))}
                   </ul>
-                ))}
-              </ul>
+                  <ul className="plat">
+                    <strong className="strtitle">Platforms:</strong>
+                    {videoGame[0].platforms.map((p, index) => (
+                      <ul key={index}>
+                        <p>{p}</p>
+                      </ul>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-            <br></br>
             <div className="btn_goback">
               <Link className="backlink" to="/home">
                 Go back

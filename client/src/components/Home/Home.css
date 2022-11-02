@@ -83,18 +83,20 @@ body {
   margin-bottom: 15px;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: rgba(174, 0, 255, 0.388);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 2rem;
   align-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px rgb(0, 255, 255),
+    0 0 10px rgb(0, 255, 255);
 }
 
 .cardsunit:hover {
   background: #ffffff;
   color: #000000;
-  box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+  box-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 30px #f40, 0 0 30px #f40;
 }
 
 .addbutton {
@@ -102,8 +104,8 @@ body {
 }
 
 .link {
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 100%;
   color: aliceblue;
   text-decoration: none;
   display: flex;
@@ -196,4 +198,88 @@ body {
   background: #ffffff;
   color: #000000;
   box-shadow: 0 0 5px #fff, 0 0 25px #fff, 0 0 50px #f40, 0 0 200px #f40;
+}
+
+.btn_reset span {
+  position: absolute;
+  display: block;
+}
+
+.btn_reset span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgb(0, 225, 255));
+  animation: animate1 1s linear infinite;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.btn_reset span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgb(0, 225, 255));
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.btn_reset span:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, rgb(0, 225, 255));
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes animate3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.btn_reset span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, rgb(0, 225, 255));
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
 }
