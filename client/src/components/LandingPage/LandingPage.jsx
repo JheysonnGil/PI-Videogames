@@ -7,6 +7,8 @@ export default function LandingPage() {
     <div className="bg">
       <div className="title">
         <h1 className="landingh1">Welcome to 3XTREM GAM3S</h1>
+        <br />
+        <br />
         <div className="linkpos">
           <Link className="landinglink" to="/home">
             <span></span>

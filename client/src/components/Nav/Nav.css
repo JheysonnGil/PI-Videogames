@@ -7,14 +7,14 @@ header {
   width: 100%;
   position: fixed;
   z-index: 100;
-  box-shadow: 0px 0px 15px rgb(0, 225, 255);
+  box-shadow: 2px 2px 10px rgb(0, 225, 255);
 }
 
 .navbar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background-color: rgba(50, 0, 70, 0.85);
-  height: 150px;
+  height: 110px;
   width: 100%;
 }
 
@@ -26,7 +26,8 @@ header {
 }
 
 .htitle {
-  width: 500px;
+  margin-left: 20px;
+  width: 430px;
   text-align: center;
   color: aliceblue;
 }
@@ -44,12 +45,20 @@ header {
   font-weight: 800px;
   font-style: italic;
   color: #fff;
-  padding: 1rem 0rem 1rem;
+  padding: 0.5rem 0rem 0.5rem;
   border: 0.2rem solid #fff;
   border-radius: 2rem;
   text-transform: uppercase;
   animation: flicker 0.5s infinite alternate;
   margin-bottom: -30px;
+}
+
+.resetspace {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .link_add {
@@ -115,6 +124,7 @@ header {
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
 .addlink {
+  height: 2px;
   font-size: 2rem;
   position: relative;
   align-items: center;
@@ -131,7 +141,7 @@ header {
   overflow: hidden;
   border-radius: 5px;
   background-color: rgba(255, 68, 0, 0.494);
-  margin-right: -120px;
+  margin-right: -100px;
 }
 
 .addlink:hover {

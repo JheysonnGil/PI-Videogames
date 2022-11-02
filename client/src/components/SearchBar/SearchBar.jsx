@@ -4,6 +4,7 @@ import { getNameVideogames } from "../../actions/index";
 import "./SearchBar.css";
 
 function SearchBar({ setPage }) {
+  const [setCurrentPage] = useState(1);
   const [name, setName] = useState("");
   const dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ function SearchBar({ setPage }) {
       dispatch(getNameVideogames(name));
     }
     if (name.length === 0) alert("Can not be empty...");
+    setCurrentPage(1);
   }
 
   return (

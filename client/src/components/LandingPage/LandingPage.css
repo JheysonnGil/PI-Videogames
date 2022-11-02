@@ -1,12 +1,13 @@
 .bg {
-  height: 600px;
+  background-color: #00000080;
+  height: 946px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .title {
-  width: 1250px;
+  width: 1600px;
   display: block;
 }
 
@@ -20,16 +21,17 @@
 @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
 
 .landingh1 {
+  text-align: center;
   position: center;
-  font-size: 8rem;
-  font-weight: 800;
+  font-size: 10.5rem;
+  font-weight: 1200;
   font-style: italic;
   color: #fff;
-  padding: 2rem 2rem 2rem;
+  padding: 1rem 2rem 1rem 0rem;
   border: 0.4rem solid #fff;
   border-radius: 2rem;
   text-transform: uppercase;
-  animation: flicker 1.5s infinite alternate;
+  animation: flicker 2s infinite alternate;
 }
 
 .landingh1::-moz-selection {
@@ -74,7 +76,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
 .landinglink {
-  font-size: 2rem;
+  font-size: 4.5rem;
   position: relative;
   align-items: center;
   width: fit-content;
@@ -108,8 +110,8 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgb(0, 225, 255));
+  height: 3.5px;
+  background: linear-gradient(90deg, transparent, rgb(0, 255, 255));
   animation: animate1 1s linear infinite;
 }
 
@@ -126,9 +128,9 @@
 .landinglink span:nth-child(2) {
   top: -100%;
   right: 0;
-  width: 2px;
+  width: 3.5px;
   height: 100%;
-  background: linear-gradient(180deg, transparent, rgb(0, 225, 255));
+  background: linear-gradient(180deg, transparent, rgb(0, 255, 255));
   animation: animate2 1s linear infinite;
   animation-delay: 0.25s;
 }
@@ -147,8 +149,8 @@
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, rgb(0, 225, 255));
+  height: 3.5px;
+  background: linear-gradient(270deg, transparent, rgb(0, 255, 255));
   animation: animate3 1s linear infinite;
   animation-delay: 0.5s;
 }
@@ -166,9 +168,9 @@
 .landinglink span:nth-child(4) {
   bottom: -100%;
   left: 0;
-  width: 2px;
+  width: 3.5px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, rgb(0, 225, 255));
+  background: linear-gradient(360deg, transparent, rgb(0, 255, 255));
   animation: animate4 1s linear infinite;
   animation-delay: 0.75s;
 }
