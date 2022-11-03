@@ -13,7 +13,9 @@ export const CLEAR_DETAIL = "CLEAR_DETAIL";
 
 export function getVideogames() {
   return async function (dispatch) {
-    var videogames = await axios.get(`http://localhost:3001/videogames`);
+    var videogames = await axios.get(
+      `https://extremegames.herokuapp.com/videogames`
+    );
     return dispatch({
       type: GET_VIDEOGAMES,
       payload: videogames.data,
@@ -23,7 +25,10 @@ export function getVideogames() {
 
 export function getGenres() {
   return async function (dispatch) {
-    var genres = await axios.get(`http://localhost:3001/genres`, {});
+    var genres = await axios.get(
+      `https://extremegames.herokuapp.com/genres`,
+      {}
+    );
     return dispatch({ type: GET_GENRES, payload: genres.data });
   };
 }
@@ -32,7 +37,7 @@ export const getNameVideogames = (name) => {
   return async function (dispatch) {
     try {
       const allNames = await axios.get(
-        `http://localhost:3001/videogames?name=${name}`
+        `https://extremegames.herokuapp.com/videogames?name=${name}`
       );
       return dispatch({
         type: NAME_BY_QUERY,
@@ -49,7 +54,7 @@ export function detailPerVg(id) {
   return async (dispatch) => {
     try {
       const detailCard = await axios.get(
-        `http://localhost:3001/videogame/${id}`
+        `https://extremegames.herokuapp.com/videogame/${id}`
       );
       return dispatch({
         type: DETAIL_VIDEOGAME,
@@ -92,7 +97,10 @@ export function orderRating(payload) {
 
 export function postGame(payload) {
   return async function (dispatch) {
-    const create = await axios.post(`http://localhost:3001/videogame`, payload);
+    const create = await axios.post(
+      `https://extremegames.herokuapp.com/videogame`,
+      payload
+    );
     return create;
   };
 }
